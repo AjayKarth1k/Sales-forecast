@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "angular2-virtual-scroll": "^0.4.16",
+    "cors": "^2.8.5",
+    "file-saver": "^2.0.5",
+    "powerbi-client": "^2.22.2"
+  }
+}

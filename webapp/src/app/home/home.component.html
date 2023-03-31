@@ -1,0 +1,36 @@
+<div class="container">
+  <h1>Upload CSV or Excel file</h1>
+  <form>
+    <label for="file-upload">Choose a file:</label>
+    <input type="file" id="file-upload" accept=".csv,.xlsx,.xls" placeholder="Choose a file">
+  </form>
+  <p class="warning" *ngIf="showWarning">Please select a valid CSV or Excel file.</p>
+  
+  <div class="upload-progress" *ngIf="uploadProgress > 0">
+    <div class="progress-bar" [style.width.%]="uploadProgress"></div>
+  </div>
+  
+  <div class="dropdowns">
+    <div class="dropdown">
+      <label for="periodicity" title="Select periodicity">Periodicity:</label>
+      <select (change)="onPeriodicityChange($event)" id="periodicity">
+        <option value="" selected disabled hidden>Select periodicity</option>
+        <option value="Daily">Daily</option>
+        <option value="Monthly">Monthly</option>
+        <option value="Yearly">Yearly</option>
+      </select>
+    </div>
+    
+    <div class="dropdown">
+      <label for="numerix">Numerix:</label>
+      <select (change)="onNumerixChange($event)" id="numerix">
+        <option value="" selected disabled hidden>Select numerix</option>
+        <option *ngFor="let num of numerixOptions" [value]="num">{{num}}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="upload-button-container">
+    <button type="button" (click)="uploadFile()" [disabled]="!isUploadEnabled()">Upload</button>
+  </div>
+</div>
