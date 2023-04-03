@@ -15,7 +15,7 @@ interface UploadResponse {
 export class HomeComponent {
   showWarning = false;
   uploadProgress = 0;
-  periodicityOptions = ['Daily', 'Monthly', 'Yearly'];
+  periodicityOptions = ['Daily', 'Weekly', 'Monthly', 'Yearly'];
   numerixOptions: string[] = [];
   selectedPeriodicity: string | null = null;
   selectedNumerix: number | null = null;
@@ -68,7 +68,9 @@ export class HomeComponent {
 
     if (periodicity === 'Daily') {
       this.numerixOptions = Array.from({length: 31}, (_, i) => (i + 1).toString());
-    } else if (periodicity === 'Monthly') {
+    } else if (periodicity === 'Weekly') {
+      this.numerixOptions = Array.from({length: 4}, (_, i) => (i + 1).toString());
+    }else if (periodicity === 'Monthly') {
       this.numerixOptions = Array.from({length: 12}, (_, i) => (i + 1).toString());
     } else if (periodicity === 'Yearly') {
       this.numerixOptions = Array.from({length: 10}, (_, i) => (i + 1).toString());

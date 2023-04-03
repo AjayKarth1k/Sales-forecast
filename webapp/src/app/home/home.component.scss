@@ -1,7 +1,70 @@
-.container {
+.navbar-collapse{
+  font-size: 16px;
+  font-weight: 600;
+  color: black;
+}
+.middle-element{
+  padding-left: 10px;
+}
+.last-element{
+  padding-left: 10px;
+}
+.navbar-brand
+{
+  font-size: 36px;
+  font-weight: 600;
+  padding-right: 5rem;
+}
+.hawk{
+  padding-right: 10px;
+  color: #000000;
+  
+  font-weight: 800;
+}
+.er{
+  color: #939393;
+  font-family: 'Mulish', sans-serif;
+}
+.navbar{
+  font-family: 'Montserrat', sans-serif;
+  // background-color: #FFEACC;
+  // position: fixed;
+  margin-right: 900px;
+  top: 0;
+  box-shadow: none;
+  width: 100%;
+  z-index: 1000;
+  height: 5rem;
+}
+.btn-yellow{
+  background-color: #ffffff;
+  margin-right:16px;
+  box-shadow: none;
+  font-weight: 600;
+  color: black;
+}
+.btn-white{
+  margin-right:16px;
+  border: 1px solid black;
+  background-color: #FFEACC;
+  font-weight: 600;
+  color: black;
+  box-shadow: none;
+}
+.btn-position{
+  text-align: right;
+}
+
+
+// home
+.container_home {
   display: flex;
   flex-direction: column;
+  font-family: 'Montserrat', sans-serif;
   align-items: center;
+  margin-top: 100px;
+  // background-color: #ffffff;
+  padding-left: 600px;
 }
 
 input[type="file"] {

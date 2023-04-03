@@ -2,10 +2,10 @@ from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 import pandas as pd
 import matplotlib
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
 import os
-from flask import Flask, send_from_directory
+import matplotlib.pyplot as plt
+import subprocess
+matplotlib.use('Agg')
 
 app = Flask(__name__, static_folder='webapp/dist/webapp')
 CORS(app, resources={r"/*": {"origins": "*"}})
@@ -17,23 +17,16 @@ def upload_file():
     if not file or (file.content_type != 'text/csv' and file.content_type != 'application/vnd.ms-excel' and file.content_type != 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'):
         return jsonify({'message': 'Invalid file type.'}), 400
 
-    # Process the uploaded file using Pandas
-    df = pd.read_csv(file)
-    df = df[['Sales Person', 'Expenses']]
 
-    # Generate the plot
-    x = df['Sales Person']
-    y = df['Expenses']
-    value_x = 2.2;
-    value_y = 2.5;
+    # Get the user input
     M = request.form.get('selectedNumerix')
     N = request.form.get('selectedPeriodicity')
-    plt.plot(x, y)
-    plt.title(f'{M}, {N}')
-    plt.savefig(os.path.join(app.static_folder, 'assets', 'data.png'))
-    plt.close()
 
-    return jsonify({'message': 'File uploaded successfully.'}), 200
+    # Call the machine learning code with the input
+    cmd = f'python machine.py --file {file.filename} --numerix {M} --periodicity {N}'
+    subprocess.call(cmd, shell=True)
+
+    return jsonify({'message': 'File uploaded and processed successfully.'}), 200
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
