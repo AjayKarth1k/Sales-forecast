@@ -14,9 +14,9 @@ export class LoginComponent {
   constructor(private router: Router) {}
 
   login() {
-    if (this.username === 'ajay' && this.password === '12345') {
+    if (this.username === 'Ajay' && this.password === '12345') {
       // Navigate to home page
-      this.router.navigate(['/home']);
+      this.router.navigate(['/upload']);
     } else {
       this.errorMessage = 'Invalid credentials';
     }

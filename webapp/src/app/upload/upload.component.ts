@@ -2,17 +2,16 @@ import { Component } from '@angular/core';
 import { HttpClient, HttpEventType, HttpResponse } from '@angular/common/http';
 import { RouterModule, Router } from '@angular/router';
 
-
 interface UploadResponse {
   success: Boolean;
 }
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-upload',
+  templateUrl: './upload.component.html',
+  styleUrls: ['./upload.component.scss']
 })
-export class HomeComponent {
+export class UploadComponent {
   showWarning = false;
   uploadProgress = 0;
   periodicityOptions = ['Daily', 'Weekly', 'Monthly', 'Yearly'];
@@ -52,6 +51,9 @@ export class HomeComponent {
         const response = event.body as UploadResponse;
         console.log(response);
           this.router.navigate(['/report']);
+          setTimeout(() => {
+            location.reload();
+          }, 1000);
       }
     });
   }

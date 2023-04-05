@@ -7,11 +7,11 @@
   padding-left: 10px;
 }
 .last-element{
-  padding-left: 500px;
+  padding-left: 700px;
 }
 .navbar-brand
 {
-  font-size: 36px;
+  font-size: 30px;
   font-weight: 600;
   padding-right: 5rem;
 }
@@ -22,13 +22,10 @@
   font-weight: 800;
 }
 .er{
-  color: #7a7474;
-  font-family: 'Mulish', sans-serif;
+  color: #18ce98;
 }
 .navbar{
-  font-family: 'Montserrat', sans-serif;
-  // background-color: #FFEACC;
-  // position: fixed;
+  font-family: 'Lexend', sans-serif;
   margin-right: 900px;
   top: 0;
   box-shadow: none;
@@ -58,54 +55,59 @@
 
 
 //login
-.container_login {
+.login{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 100px;
-  background-color: #ffffff;
-  font-family: 'Montserrat', sans-serif;
-  border-radius: 10px;
-  margin-left:800px;
-  width: 400px;
+  font-family: 'Lexend', sans-serif;
+  font-weight: 400;
+  width: 500px;
+  padding-right: 70px;
 }
 
 .login-form {
+  background-color: #ffffff;
   width: 400px;
   border-radius: 20px;
-  padding-left: 50px;
+  padding-left: 10px;
   padding-bottom: 50px;
   padding-top: 30px;
 }
 
 .form-group {
-  margin-bottom: 40px;
+  font-family: 'Lexend', sans-serif;
+  padding-right: 10px;
 }
 
 label {
   display: block;
   padding-left: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   font-weight: bolder;
 }
 
 input[type="text"],
 input[type="password"] {
-  width: 300px;
+  width: 320px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 10px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Lexend', sans-serif;
 }
-
+.sign{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  color: #000000;
+  padding-left: 0px;
+}
 .btn_login {
   display: block;
-  width: 100%;
   padding: 10px;
-  background-color: #007bff;
-  color: #fff;
+  margin-left: 28px;
+  background-color: #18ce98;
+  color: #ffffff;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
   width: 325px;
   font-family: 'Montserrat', sans-serif;
@@ -118,8 +120,21 @@ input[type="password"] {
 }
 
 .pass{
-  margin-bottom: 25px;
+  margin-bottom: 30px;
+  font-weight: 400;
 }
 .user{
+  margin-top: 30px;
   margin-bottom: 20px;
+  font-weight: 400;
+}
+.username{
+padding-right: 240px;
+}
+.password{
+  padding-right: 240px;
+}
+.img{
+  width:600px;
+  height:600px;
 }

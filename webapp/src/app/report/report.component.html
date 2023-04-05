@@ -1,2 +1,167 @@
-<img src="../../assets/prediction.png" alt="Plot graph">
-<link rel="stylesheet" href="../../../forecast.html">
+<nav class="navbar navbar-expand-lg navbar-custom">
+  <!-- Container wrapper -->
+  <div class="container">
+    <!-- Navbar brand -->
+    <a class="navbar-brand" href="#">
+      <span class="hawk">SALES</span><span class="er">Forecasting</span>
+    </a>
+
+    <!-- Toggle button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarButtonsExample"
+      aria-controls="navbarButtonsExample"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarButtonsExample">
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-auto">
+        <!-- <li class="nav-item first-element">
+          <a class="nav-link" routerLink="./home">Previous Report</a>
+        <!-- </li> -->
+        <li class="nav-item middle-element">
+          <a (click)="showImage()" class="nav-link">Trends</a>
+        </li>
+        <!-- <li class="nav-item middle-element">
+          <a class="nav-link" routerLink="./about">Logout</a>
+        </li> -->
+        <li class="nav-item last-element" routerLinkActive="active">
+          <a class="nav-link" routerLink="/powerbi">PowerBI Visualization</a>
+        </li> 
+
+      </ul>
+      <!-- Left links -->
+
+      <div class="btn-position">
+        <!-- <button type="button" class="btn btn-primary btn-white me-3" routerLink="/login">
+          Login
+        </button> -->
+        <button type="button" class="btn btn-primary btn-yellow me-3" routerLink="/">
+          Logout
+        </button>
+      </div>
+    </div>
+    <!-- Collapsible wrapper -->
+  </div>
+  <!-- Container wrapper -->
+</nav>
+
+
+
+<!-- reporting -->
+<div class="container_reportfinal">
+
+
+<div class="container_report">
+  <div class="row">
+    <div class="col-md-6 text-center ms-auto hover1" >
+      <h2>Predicted Table</h2>
+      <div class="row table">
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-7">
+          <table class="table table-secondary table-hover table-striped text-center">
+            <thead>
+              <tr>
+                <th *ngFor="let header of headers">{{ header }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let row of rows; let even = even" >
+                <td *ngFor="let header of headers">{{ row[header] }}</td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+      </div>
+      <!-- table over -->
+    </div>
+    <div class="col-md-6 text-center ms-auto hover1" >
+      <h2>Predicted Graph</h2>
+      <img class="img_predict" alt="Predicted Graph" src="../../assets/prediction.png">
+    </div>
+  </div>
+</div>
+<div class="container_extra">
+  <h2 class="title"> View<span class="headtr"> Trends </span>for the given dataset </h2>
+  <img class="trending"src="../../assets/Trends.png" alt="Trends Image">
+
+  <h2 class="title II">View<span class="headtr"> PowerBI </span>Visualization for the given dataset </h2>
+  <iframe class="visual" title="Prophet_powerBIVisual" width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=fdc6cf6b-5c64-42d1-803d-5bb8a2980441&autoAuth=true&ctid=a4ec779d-5ff7-46cf-8077-a13e0ab6ef8a" frameborder="0" allowFullScreen="true"></iframe></div>
+
+
+
+<!-- footer -->
+<footer class="text-center text-white footeruh" style="background-color: #ffffff;">
+  <!-- Grid container -->
+  <div class="container pt-4">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-facebook-f"></i
+      ></a>
+
+      <!-- Twitter -->
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-twitter"></i
+      ></a>
+
+      <!-- Google -->
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-google"></i
+      ></a>
+
+      <!-- Instagram -->
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-instagram"></i
+      ></a>
+
+      <!-- Linkedin -->
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-linkedin"></i
+      ></a>
+      <!-- Github -->
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-github"></i
+      ></a>
+    </section>
+    <!-- Section: Social media -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color:#ffffff;color: #18ce98;">
+    © 2020 Copyright:
+    <a class="">Sales Forecast.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+
+
+</div>

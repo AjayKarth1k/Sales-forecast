@@ -1,8 +1,17 @@
 {
   "dependencies": {
+    "@types/papaparse": "^5.3.7",
+    "angular-plotly.js": "^4.0.4",
     "angular2-virtual-scroll": "^0.4.16",
     "cors": "^2.8.5",
     "file-saver": "^2.0.5",
+    "papaparse": "^5.4.1",
+    "plotly.js": "^2.20.0",
+    "plotly.js-dist": "^2.20.0",
+    "plotly.js-dist-min": "^2.20.0",
     "powerbi-client": "^2.22.2"
+  },
+  "devDependencies": {
+    "@types/plotly.js-dist-min": "^2.3.1"
   }
 }
