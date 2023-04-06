@@ -53,7 +53,6 @@ def upload_file():
     future = m.make_future_dataframe(periods=Numerix, freq=periodicity)
     forecast = m.predict(future)
     thecsv = pd.DataFrame({'Date': forecast['ds'], 'Sales': forecast['yhat']})
-    thecsv.to_csv('Final_otput.csv', index=False)
     fpp = forecast.tail(Numerix)
     print(fpp)
     fcp = pd.DataFrame({'Date': fpp['ds'], 'Sales': fpp['yhat']})
@@ -67,22 +66,22 @@ def upload_file():
         plt.savefig(os.path.join(app.static_folder, 'assets', 'prediction.png'), dpi=300, bbox_inches='tight') 
         plt.show()
         plt.close()
-    if(periodicity == 'D' and DW == 'W'):
+    elif(periodicity == 'D' and DW == 'W'):
         fcp.plot(color="#18ce98")
         plt.xlabel("Date")
         plt.ylabel("Sales")
         plt.savefig(os.path.join(app.static_folder, 'assets', 'prediction.png'), dpi=300, bbox_inches='tight') 
         plt.show()
         plt.close()
-    print(len(train))
-    if periodicity == "MS":
+        print(len(train))
+    elif periodicity == "MS":
         fcp.plot(color="#18ce98")
         plt.xlabel("Date")
         plt.ylabel("Sales")
         plt.savefig(os.path.join(app.static_folder, 'assets', 'prediction.png'), dpi=300, bbox_inches='tight')
         plt.show()
         plt.close()
-    if periodicity == "A":
+    elif periodicity == "A":
         fcp.plot(color="#18ce98")
         plt.xlabel("Date")
         plt.ylabel("Sales")
@@ -96,14 +95,6 @@ def upload_file():
             line.set_color("#18ce98")
     fig2.savefig(os.path.join(app.static_folder, 'assets', 'Trends.png'), dpi=300, bbox_inches='tight')
     return jsonify({'message': 'File uploaded successfully.'}), 200
-
-@app.route('/', defaults={'path': ''})
-@app.route('/<path:path>')
-def serve(path):
-    if path != "" and os.path.exists(app.static_folder + '/' + path):
-        return send_from_directory(app.static_folder, path)
-    else:
-        return send_from_directory(app.static_folder, 'index.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
