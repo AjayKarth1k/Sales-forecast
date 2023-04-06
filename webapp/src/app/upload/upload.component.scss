@@ -66,8 +66,7 @@
     flex-direction: column;
     font-family: 'Lexend', sans-serif;
     align-items: center;
-    padding-top: 40px;
-    margin-bottom: 100px;
+    padding-top: 60px;
     margin-top: 115px;
     font-weight: 700;
     font-size: 18px;
@@ -140,3 +139,65 @@
   .main{
     margin-right: 0px;
   }
+  .brand{
+    color: #3f3f3f;
+    font-family: 'Lexend', sans-serif;
+    font-weight: 800;
+    margin-right: 50px;
+  }
+  .unlock{
+    color: #18ce98;
+    font-size: 42px;
+    padding-bottom: 15px;
+  }
+.container_anim{
+  display: flex;
+}
+.animate__animated {
+  animation-duration: 2s;
+  animation-fill-mode: both;
+}
+
+.animate__bounceInUp {
+  animation-name: bounceInUp;
+}
+
+@keyframes bounceInUp {
+  from,
+  60%,
+  75%,
+  90%,
+  to {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate3d(0, -20px, 0);
+  }
+
+  75% {
+    transform: translate3d(0, 20px, 0);
+  }
+
+  90% {
+    transform: translate3d(0, -10px, 0);
+  }
+
+  to {
+    transform: none;
+  }
+}
+.fb{
+  width: 250px;
+  margin-right: 40px;
+}
+.power{
+  padding-top: 45px;
+  margin-right: 35px;
+}
