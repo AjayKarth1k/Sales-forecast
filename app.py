@@ -23,50 +23,38 @@ def upload_file():
     df = pd.read_csv(file)
     df.dropna(inplace=True)
     df.reset_index(drop=True, inplace=True)
-    df.head()
     df.columns = ["ds", "y"]
-    df.head()
     df["ds"] = pd.to_datetime(df["ds"])
-    df.head()
-    df.tail(20)
     Numerix = int(request.form.get('selectedNumerix'))
     periodicity = request.form.get('selectedPeriodicity')
-    DW = "D"
-    if periodicity == "Daily":
+    if periodicity == "Days":
         periodicity = "D"
-    if periodicity == "Weekly":
-        periodicity = "D"
-        DW = "W"
-        Numerix = Numerix * 7
-    if periodicity == "Monthly":
+    if periodicity == "Weeks":
+        periodicity = "W"
+    if periodicity == "Months":
         periodicity = "MS"
-    if periodicity == "Yearly":
+    if periodicity == "Years":
         periodicity = "A"
-    df.plot(x="ds", y="y", figsize=(10, 6))
     length = len(df)
     train_size = round((80 / 100) * length)
     train = df[: length - 12]
     test = df[length - 12 :]
-    train.tail()
     m = Prophet()
     m.fit(df)
     future = m.make_future_dataframe(periods=Numerix, freq=periodicity)
     forecast = m.predict(future)
-    thecsv = pd.DataFrame({'Date': forecast['ds'], 'Sales': forecast['yhat']})
     fpp = forecast.tail(Numerix)
-    print(fpp)
     fcp = pd.DataFrame({'Date': fpp['ds'], 'Sales': fpp['yhat']})
     fcp = fcp.set_index("Date")
-    print(fcp)
     fcp.to_csv(os.path.join(app.static_folder, 'assets', 'Predicted_result.csv'))
-    if(periodicity == 'D' and DW=='D'):
+    if(periodicity == 'D'):
         fcp.plot(color="#18ce98")
         plt.xlabel("Date")
         plt.ylabel("Sales")
         plt.savefig(os.path.join(app.static_folder, 'assets', 'prediction.png'), dpi=300, bbox_inches='tight') 
         plt.show()
         plt.close()
-    elif(periodicity == 'D' and DW == 'W'):
+    elif(periodicity == 'W'):
         fcp.plot(color="#18ce98")
         plt.xlabel("Date")
         plt.ylabel("Sales")
@@ -88,7 +76,6 @@ def upload_file():
         plt.savefig(os.path.join(app.static_folder, 'assets', 'prediction.png'), dpi=300, bbox_inches='tight')
         plt.show()
         plt.close()
-    forecast.tail()
     fig2 = m.plot_components(forecast)
     for ax in fig2.axes:
         for line in ax.lines:

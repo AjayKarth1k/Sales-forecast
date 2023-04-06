@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient, HttpEventType, HttpResponse } from '@angular/common/http';
-import { RouterModule, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 interface UploadResponse {
   success: Boolean;
@@ -14,7 +14,7 @@ interface UploadResponse {
 export class UploadComponent {
   showWarning = false;
   uploadProgress = 0;
-  periodicityOptions = ['Daily', 'Weekly', 'Monthly', 'Yearly'];
+  periodicityOptions = ['Days', 'Weeks', 'Months', 'Years'];
   numerixOptions: string[] = [];
   selectedPeriodicity: string | null = null;
   selectedNumerix: number | null = null;
@@ -25,7 +25,7 @@ export class UploadComponent {
     const fileUpload = document.getElementById('file-upload') as HTMLInputElement | null;
 
     if (!fileUpload) {
-      return; // handle case where file-upload element is null
+      return; // null values to file upload when no file is given
     }
 
     const file = fileUpload.files?.[0]; // use optional chaining to safely access files array
@@ -58,28 +58,25 @@ export class UploadComponent {
     });
   }
 
-
   isUploadEnabled(): boolean {
     return !!this.selectedPeriodicity && !!this.selectedNumerix;
   }
-
 
   onPeriodicityChange(event: Event) {
     const target = event.target as HTMLSelectElement;
     const periodicity = target.value;
 
-    if (periodicity === 'Daily') {
+    if (periodicity === 'Day') {
       this.numerixOptions = Array.from({length: 31}, (_, i) => (i + 1).toString());
-    } else if (periodicity === 'Weekly') {
+    } else if (periodicity === 'Week') {
       this.numerixOptions = Array.from({length: 4}, (_, i) => (i + 1).toString());
-    }else if (periodicity === 'Monthly') {
+    }else if (periodicity === 'Month') {
       this.numerixOptions = Array.from({length: 12}, (_, i) => (i + 1).toString());
-    } else if (periodicity === 'Yearly') {
+    } else if (periodicity === 'Year') {
       this.numerixOptions = Array.from({length: 10}, (_, i) => (i + 1).toString());
     }
 
     this.selectedPeriodicity = periodicity;
-    this.selectedNumerix = null;
   }
 
   onNumerixChange(event: Event) {
@@ -87,9 +84,5 @@ export class UploadComponent {
     const numerix = parseInt(target.value);
 
     this.selectedNumerix = numerix;
-  }
-
-  shouldShowUploadButton(): boolean {
-    return !!this.selectedPeriodicity && !!this.selectedNumerix;
   }
 }
