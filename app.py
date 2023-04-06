@@ -62,23 +62,31 @@ def upload_file():
     fcp.to_csv(os.path.join(app.static_folder, 'assets', 'Predicted_result.csv'))
     if(periodicity == 'D' and DW=='D'):
         fcp.plot(color="#18ce98")
-        plt.savefig(os.path.join(app.static_folder, 'assets', 'prediction.png')) 
+        plt.xlabel("Date")
+        plt.ylabel("Sales")
+        plt.savefig(os.path.join(app.static_folder, 'assets', 'prediction.png'), dpi=300, bbox_inches='tight') 
         plt.show()
         plt.close()
     if(periodicity == 'D' and DW == 'W'):
         fcp.plot(color="#18ce98")
-        plt.savefig(os.path.join(app.static_folder, 'assets', 'prediction.png')) 
+        plt.xlabel("Date")
+        plt.ylabel("Sales")
+        plt.savefig(os.path.join(app.static_folder, 'assets', 'prediction.png'), dpi=300, bbox_inches='tight') 
         plt.show()
         plt.close()
     print(len(train))
     if periodicity == "MS":
         fcp.plot(color="#18ce98")
-        plt.savefig(os.path.join(app.static_folder, 'assets', 'prediction.png'))
+        plt.xlabel("Date")
+        plt.ylabel("Sales")
+        plt.savefig(os.path.join(app.static_folder, 'assets', 'prediction.png'), dpi=300, bbox_inches='tight')
         plt.show()
         plt.close()
     if periodicity == "A":
         fcp.plot(color="#18ce98")
-        plt.savefig(os.path.join(app.static_folder, 'assets', 'prediction.png'))
+        plt.xlabel("Date")
+        plt.ylabel("Sales")
+        plt.savefig(os.path.join(app.static_folder, 'assets', 'prediction.png'), dpi=300, bbox_inches='tight')
         plt.show()
         plt.close()
     forecast.tail()
@@ -86,7 +94,7 @@ def upload_file():
     for ax in fig2.axes:
         for line in ax.lines:
             line.set_color("#18ce98")
-    fig2.savefig(os.path.join(app.static_folder, 'assets', 'Trends.png'))
+    fig2.savefig(os.path.join(app.static_folder, 'assets', 'Trends.png'), dpi=300, bbox_inches='tight')
     return jsonify({'message': 'File uploaded successfully.'}), 200
 
 @app.route('/', defaults={'path': ''})
