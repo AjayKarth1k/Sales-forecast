@@ -53,7 +53,7 @@ export class UploadComponent {
           this.router.navigate(['/report']);
           setTimeout(() => {
             location.reload();
-          }, 1000);
+          }, 1800);
       }
     });
   }

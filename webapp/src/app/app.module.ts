@@ -8,6 +8,8 @@ import { LoginComponent } from './login/login.component';
 import { ReportComponent } from './report/report.component';
 import { RouterModule, Router } from '@angular/router';
 import { UploadComponent } from './upload/upload.component';
+import { TrendComponent } from './trend/trend.component';
+import { VisualComponent } from './visual/visual.component';
 
 
 
@@ -16,7 +18,9 @@ import { UploadComponent } from './upload/upload.component';
     AppComponent,
     LoginComponent,
     ReportComponent,
-    UploadComponent
+    UploadComponent,
+    TrendComponent,
+    VisualComponent
   ],
   imports: [
     BrowserModule,
