@@ -51,9 +51,6 @@ export class UploadComponent {
         const response = event.body as UploadResponse;
         console.log(response);
           this.router.navigate(['/report']);
-          setTimeout(() => {
-            location.reload();
-          }, 3000);
       }
     });
   }
@@ -66,13 +63,13 @@ export class UploadComponent {
     const target = event.target as HTMLSelectElement;
     const periodicity = target.value;
 
-    if (periodicity === 'Day') {
+    if (periodicity === 'Days') {
       this.numerixOptions = Array.from({length: 31}, (_, i) => (i + 1).toString());
-    } else if (periodicity === 'Week') {
+    } else if (periodicity === 'Weeks') {
       this.numerixOptions = Array.from({length: 4}, (_, i) => (i + 1).toString());
-    }else if (periodicity === 'Month') {
+    }else if (periodicity === 'Months') {
       this.numerixOptions = Array.from({length: 12}, (_, i) => (i + 1).toString());
-    } else if (periodicity === 'Year') {
+    } else if (periodicity === 'Years') {
       this.numerixOptions = Array.from({length: 10}, (_, i) => (i + 1).toString());
     }
 
