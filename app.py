@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import os
 from flask import Flask, send_from_directory
 
-app = Flask(__name__, static_folder='app/')
+app = Flask(__name__, static_folder='webapp/src')
 CORS(app, resources={r"/*": {"origins": "*"}})
 
 @app.route('/upload', methods=['POST'])
