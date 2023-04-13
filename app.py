@@ -79,5 +79,14 @@ def upload_file():
     fig2.savefig(os.path.join(app.static_folder, 'assets', 'Trends.png'), dpi=300, bbox_inches='tight')
     return jsonify({'message': 'File uploaded successfully.'}), 200
 
+@app.route('/')
+def serve():
+    return send_from_directory('app', 'index.html')
+
+@app.route('/<path:path>')
+def serve_static(path):
+    return send_from_directory('app', path)
+
+
 if __name__ == '__main__':
     app.run(debug=True)
