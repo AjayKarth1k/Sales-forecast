@@ -1,7 +1,6 @@
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from prophet import Prophet
-from prophet.plot import plot_plotly
 import pandas as pd
 import matplotlib
 matplotlib.use('Agg')
@@ -9,7 +8,7 @@ import matplotlib.pyplot as plt
 import os
 from flask import Flask, send_from_directory
 
-app = Flask(__name__, static_folder='webapp/src')
+app = Flask(__name__, static_folder='docs/')
 CORS(app, resources={r"/*": {"origins": "*"}})
 
 @app.route('/upload', methods=['POST'])
@@ -79,6 +78,15 @@ def upload_file():
     fig2.savefig(os.path.join(app.static_folder, 'assets', 'Trends.png'), dpi=300, bbox_inches='tight')
     return jsonify({'message': 'File uploaded successfully.'}), 200
 
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def serve(path):
+    if path != "" and os.path.exists("docs/" + path):
+        return send_from_directory('docs/', path)
+    else:
+        return send_from_directory('docs/', 'index.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+    
