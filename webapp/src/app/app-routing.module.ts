@@ -11,7 +11,7 @@ const routes: Routes = [
   {path:'upload', component: UploadComponent},
   {path:'report',component: ReportComponent},
   {path:'trend',component: TrendComponent},
-  {path:'visual',component: VisualComponent},
+  {path:'visual',component: VisualComponent}
 ];
 
 @NgModule({
